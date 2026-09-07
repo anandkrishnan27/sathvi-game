@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>The Museum</title>
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<div id="game-root">
+
+  <!-- top window: walking stage -->
+  <div class="stage">
+    <div class="clouds"></div>
+    <div class="world">
+      <div class="track"></div>
+    </div>
+    <div class="character"></div>
+    <div class="hud">
+      <span class="hud-progress">Exhibit 1 / 1</span>
+      <span class="hud-buttons">
+        <button class="hud-btn" data-action="pause" aria-label="Pause">⏸</button>
+        <button class="hud-btn" data-action="exit-request" aria-label="Exit">✕</button>
+      </span>
+    </div>
+  </div>
+
+  <!-- bottom window: exhibit pane -->
+  <div class="exhibit-pane"></div>
+
+  <!-- on-screen controls (mobile + mouse) -->
+  <div class="controls">
+    <button class="control-btn" data-action="left" aria-label="Back">&larr;</button>
+    <button class="control-btn" data-action="right" aria-label="Forward">&rarr;</button>
+  </div>
+
+  <!-- overlays -->
+  <div id="title-overlay" class="overlay" hidden>
+    <div class="overlay-card">
+      <h1 id="title-text"></h1>
+      <p id="title-subtitle"></p>
+      <button class="primary-btn" data-action="confirm">Start walking</button>
+    </div>
+  </div>
+
+  <div id="pause-overlay" class="overlay" hidden>
+    <div class="overlay-card">
+      <h2>Paused</h2>
+      <button class="primary-btn" data-action="resume">Resume</button>
+      <button class="secondary-btn" data-action="exit-request">Exit</button>
+      <div id="exit-confirm" hidden>
+        <p>Leave and return to the title screen?</p>
+        <button class="primary-btn" data-action="exit-confirmed">Yes, exit</button>
+        <button class="secondary-btn" data-action="exit-cancel">Keep walking</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="finish-overlay" class="overlay" hidden>
+    <div class="overlay-card">
+      <h1 id="finish-title"></h1>
+      <p id="finish-message"></p>
+      <p id="finish-score"></p>
+      <button class="primary-btn" data-action="confirm">Replay</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/exhibit-types.js"></script>
+<script src="js/exhibits.js"></script>
+<script src="js/stage.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>
