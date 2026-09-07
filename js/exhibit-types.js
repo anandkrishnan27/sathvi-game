@@ -49,9 +49,11 @@ function validateExhibits(list) {
 var RENDERERS = {
   photo: function (exhibit) {
     return (
+      '<div class="photo-row">' +
       '<img class="photo-img" src="' + exhibit.src + '" alt="' + escapeHtml(exhibit.alt) + '" ' +
       'onerror="this.classList.add(\'photo-broken\');this.removeAttribute(\'src\');console.error(\'Missing photo: ' + exhibit.src + '\');" />' +
-      '<p class="photo-caption">' + escapeHtml(exhibit.caption) + '</p>'
+      '<p class="photo-caption">' + escapeHtml(exhibit.caption) + '</p>' +
+      '</div>'
     );
   },
 
